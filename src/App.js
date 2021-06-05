@@ -19,7 +19,7 @@ const customStyles = {
 };
 const App = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(2);
   const [postLimit, setPostLimit] = useState(postsPerPage)
@@ -167,11 +167,13 @@ const App = () => {
       </nav>
       <Posts posts={currentPosts} loading={loading} />
       <div className='paginate'>
-        <Pagination 
+        {
+          loading===true?null:<Pagination 
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
         />
+        }
           
       </div>
       <Modal
@@ -231,7 +233,17 @@ const App = () => {
             error.message===null?null:error.message
           }
           </p>
-          <br/>
+          <br />
+          <p className='btn btn-danger float-left' onClick={e => {
+            setMovieName(null)
+            setVideo(null)
+            setThumbnail(null)
+            setVideoSelect(null)
+            setImgSelect(null)
+            setDate(null)
+            setLanguage(null)
+            
+          }}>Close</p>
           <p class="btn btn-primary float-right" onClick={e => {
             if (movieName === null) {
               setError({

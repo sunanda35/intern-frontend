@@ -1,6 +1,8 @@
 import React, {useState}from 'react';
 import './css/posts.css'
 import Modal from 'react-modal'
+import loadingImg from '../assets/833.gif'
+import { auth } from '../firebase';
 
 const customStyles = {
   content : {
@@ -18,7 +20,9 @@ const Posts = ({ posts, loading }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [postData, setPostData] = useState({})
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <div style={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <img src={loadingImg}/>
+    </div>;
   }
 
   if (posts == null) {
@@ -34,7 +38,7 @@ const Posts = ({ posts, loading }) => {
         <div onClick={e => {
           setIsModalOpen(true)
           setPostData(post)
-        }} key={post._id} id={post.id} className='posts '>
+        }} key={post._id} id={post.id} style={{cursor: 'pointer'}} className='posts '>
           {/* <img src={post.thumbnail} alt={post.movie_name} /> */}
           <video data-play="Hover" preload="auto"
             key={post._id}
