@@ -20,7 +20,9 @@
 .posts:hover{
     width: 35%;
     height: 320px;
-    z-index: 500;
+}
+.posts:hover .posts>video{
+    display: block;
 }
 .posts>img{
     width: 100%;
