@@ -190,7 +190,7 @@ const App = () => {
           <label class="sr-only" for="inlineFormInputName">Release Date</label>
           <input onChange={e=>setDate(e.target.value)} type="date" class="form-control" id="inlineFormInputName" placeholder="Release Date: 5/6/1999"  required/><br />
           <label>Choose Video Thumbnail:</label><br/>
-          <input onChange={e=>setImgSelect(e.target.files[0])} type="file" accept="image/*" placeholder='Video Thumbnail' capture required/>
+          <input onChange={e=>setImgSelect(e.target.files[0])} type="file" accept=".gif,.jpg,.jpeg,.png," placeholder='Video Thumbnail' capture required/>
           <p onClick={e => {
             if (thumbnail == null) {
               imgSelect === null ? setError({
@@ -209,7 +209,7 @@ const App = () => {
           <progress id="file" value={imgProgress} max="100"> </progress>
           <br /><br />
           <label>Choose Video:</label><br/>
-          <input onChange={e=>setVideoSelect(e.target.files[0])} type="file" accept="video/*" capture required/>
+          <input onChange={e=>setVideoSelect(e.target.files[0])} type="file" accept=".mp4,.mov" capture required/>
           <p onClick={e => {
             if (video == null) {
               videoSelect===null?setError({
