@@ -16,7 +16,7 @@ const Posts = ({ posts, loading }) => {
         <div key={post.id} id={post.id} className='posts '>
           <img src='https://cdn.pocket-lint.com/r/s/1200x/assets/images/151442-cameras-feature-stunning-photos-from-the-national-sony-world-photography-awards-2020-image1-evuxphd3mr.jpg' />
           <div className='posts_names'>
-            <p>{post.title}</p>
+            <p>{post.movie_name}</p>
           </div>
         </div>
       ))}

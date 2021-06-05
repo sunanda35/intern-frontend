@@ -13,8 +13,9 @@ const App = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      setPosts(res.data);
+      const res = await axios.get('https://intern-backend.herokuapp.com/getall');
+      console.log(res)
+      setPosts(res.data.data);
       setLoading(false);
     };
 
